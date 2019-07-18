@@ -10,5 +10,10 @@ function getShoppingList(id) {
         .select(['ingredients.ingredient_name', 'quantity'])
         .from('RecipeIngredients')
         .join('ingredients', 'RecipeIngredients.ingredient_id', 'ingredients.id')
-        .where({ 'RecipeIngredients.recipe_id': 1 });
+        .where({ 'RecipeIngredients.recipe_id': Number(id) });
+}
+
+function getInstructions(id) {
+    return db('steps')
+        .where({ recipe_id: Number(id)});
 }
