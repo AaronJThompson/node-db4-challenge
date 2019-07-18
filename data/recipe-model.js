@@ -1,6 +1,12 @@
 const knex = require('knex');
 const db = knex(require('../knexfile').development);
 
+module.exports = {
+    getRecipes,
+    getShoppingList,
+    getInstructions
+}
+
 function getRecipes() {
     return db('recipes');
 }
